@@ -6,3 +6,7 @@
   - `img2pdf *.jpg -o out.pdf`
 * Source:
   - https://gitlab.mister-muffin.de/josch/img2pdf
+
+# Convert Audible books to mp3
+
+* https://github.com/paladini/aax2mp3-easy
