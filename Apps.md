@@ -1,3 +1,12 @@
+# Safari on macOS
+
+## Search substrings
+  * Run this in terminal
+    - `defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool FALSE`
+  * Source:
+    - http://www.macworld.com/article/1161764/search_substrings_safari.html
+
+
 # Finder
 
 ## QuickLook
