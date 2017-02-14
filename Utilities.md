@@ -10,3 +10,13 @@
 # Convert Audible books to mp3
 
 * https://github.com/paladini/aax2mp3-easy
+
+# Ripping a DVD
+
+* Start playing the dvd with a media player
+* Locate the dvd
+  - `lsblk`
+* Copy
+  `dd if=/dev/sr0 of=~/alchemy.iso status=progress`
+* Check error messages if any
+  - `dmesg`
