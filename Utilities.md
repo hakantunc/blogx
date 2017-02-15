@@ -1,3 +1,10 @@
+# Unlock a PDF file
+
+* Install:
+  - `brew install qpdf`
+* Usage:
+  - `qpdf --decrypt input.pdf output.pdf`
+
 # Convert Images to a PDF file
 
 * Install:
