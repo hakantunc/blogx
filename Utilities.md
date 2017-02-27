@@ -26,6 +26,12 @@
 * Alternative single step which didn't work
   - https://github.com/paladini/aax2mp3-easy
 
+# Merge mp3 files
+
+`cat indir/*.mp3 | mp3cat - - > merged.mp3`
+
+Install: `brew install mp3cat`
+
 # Ripping a DVD
 
 * Start playing the dvd with a media player
