@@ -9,4 +9,11 @@
 
 # Shell Scripting
 
-* Access arguments with `$1`, `$2`, etc.
+Access arguments with `$1`, `$2`, etc.
+ 
+```sh
+while [ condition ]
+do
+   commands
+done
+```
