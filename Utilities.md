@@ -16,7 +16,15 @@
 
 # Convert Audible books to mp3
 
-* https://github.com/paladini/aax2mp3-easy
+1. Get the key
+  - `./audible-activator.py`
+  - Source: https://github.com/paladini/audible-activator/
+1. Convert to mp3
+  - ./AAXtoMP3.sh --single `<key>` file.aax
+  - Source: https://github.com/KrumpetPirate/AAXtoMP3
+
+* Alternative single step which didn't work
+  - https://github.com/paladini/aax2mp3-easy
 
 # Ripping a DVD
 
