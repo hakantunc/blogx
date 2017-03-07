@@ -1,3 +1,12 @@
+# Edit a line or access history from an interactive shell
+
+* `with-readline <cmd>`
+  - `brew install with-readline`
+* `rlwrap <cmd>`
+  - Supports Coq autocomplete.
+  - `brew install rlwrap`
+
+
 # Unlock a PDF file
 
 * Install:
