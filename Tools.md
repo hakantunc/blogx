@@ -1,3 +1,8 @@
+# Emacs
+
+* Reload configurations
+  - `M-x eval-buffer`
+
 # [nuXmv](https://nuxmv.fbk.eu)
 
 ## Steps
