@@ -24,3 +24,12 @@
 
 ## Surround a URL with periods to send it without a preview.
   - `.https://duckduckgo.com.`
+
+# macOS shortcuts
+
+|Shortcut|Action|
+|-----------------------------------------|---------------------------------------------------|
+|<kbd>ctrl</kbd><kbd>L</kbd>              | Go to the selected text in many apps, e.g. Safari |
+|<kbd>⌘</kbd><kbd>shift</kbd><kbd>?</kbd> | Search in app's menu                              |
+|<kbd>opt</kbd>                           | Extra options in menus, e.g. Option + volume      |
+|<kbd>⌘</kbd><kbd>opt</kbd><kbd>spc</kbd> | Search                                            |
