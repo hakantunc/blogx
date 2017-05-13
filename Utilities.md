@@ -1,3 +1,11 @@
+# ssh to a computer without a password
+
+* Generate keys
+  - `ssh-keygen -t rsa`
+* Add the generated public key to the target machine's `~/.ssh/authorized_keys` file
+* Connect to the target machine
+  - `ssh -i <private_key_location> <target_hostname>@<target_ip>`
+
 # Edit a line or access history from an interactive shell
 
 * `with-readline <cmd>`
