@@ -1,3 +1,9 @@
+# Execute scheduled commands - cron
+
+* Add jobs
+  - `crontab -e`
+* Caveat: give full path for commands. Environment variables are limited.
+
 # ssh to a computer without a password
 
 * Generate keys
