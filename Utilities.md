@@ -2,7 +2,9 @@
 
 * Add jobs
   - `crontab -e`
-* Caveat: give full path for commands. Environment variables are limited.
+* Caveats:
+  - Give full path for commands. Environment variables are limited.
+  - Escape `%` characters.
 
 # ssh to a computer without a password
 
