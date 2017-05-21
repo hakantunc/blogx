@@ -49,6 +49,7 @@
 * `sed`      -- stream editor
 * `bc`       -- An arbitrary precision calculator language
 * `readlink` -- print resolved symbolic links or canonical file names
+* `du`       -- display disk usage statistics
 
 # Shell Scripting
 
