@@ -1,3 +1,6 @@
+# Repeat a command multiple times
+* `repeat 3 { date; sleep 1 }`
+
 # Execute scheduled commands - cron
 
 * Add jobs
