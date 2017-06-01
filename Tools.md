@@ -1,3 +1,12 @@
+# [SPIN](http://spinroot.com/)
+
+* Generate a verifier
+  - `spin -a *.pml`
+* Compile and run the verifier
+  - `gcc -o pan pan.c && pan`
+* Simulation of the error trace
+  - `spin -p -t *.pml`
+
 # Emacs
 
 * Reload configurations
