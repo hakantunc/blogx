@@ -1,5 +1,8 @@
+# Show images inline in Markdown in Atom Text Editor
+* https://atom.io/packages/inline-markdown-images
+
 # Keep running [nodemon](https://nodemon.io/) even after an error
-* `nodemon -x '<cmd> || exit 1'
+* `nodemon -x '<cmd> || exit 1'`
 
 # Repeat a command multiple times
 * `repeat 3 { date; sleep 1 }`
