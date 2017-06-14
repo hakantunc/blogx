@@ -1,3 +1,11 @@
+# Find and remove duplicate files
+* `fdupes <dir>`
+  - List duplicates in the dir
+* `fdupes -d <dir>`
+  - Removes duplicates with a prompt to choose which one to keep
+* `brew install fdupes`
+* https://github.com/adrianlopezroche/fdupes
+
 # Show images inline in Markdown in Atom Text Editor
 * https://atom.io/packages/inline-markdown-images
 
