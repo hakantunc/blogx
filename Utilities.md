@@ -1,3 +1,10 @@
+# Combine images
+* horizontally
+  - `convert +append input1.png input2.png output.png`
+* verically
+  - `convert -append input1.png input2.png output.png`
+* `brew install imagemagick`
+
 # Find and remove duplicate files
 * `fdupes <dir>`
   - List duplicates in the dir
