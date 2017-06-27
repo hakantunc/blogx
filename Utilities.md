@@ -1,3 +1,6 @@
+# Combine PDF files
+* Drag from the thumbnail view and drop to the thumbnail view of the Preview app.
+
 # Combine images
 * horizontally
   - `convert +append input1.png input2.png output.png`
