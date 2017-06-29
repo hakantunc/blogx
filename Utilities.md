@@ -1,3 +1,9 @@
+# Get a specified past date
+* `date -v-23d`
+  - 23 days ago
+* `date -v-23d "+%A - %B %-d, %Y"`
+  - 23 days ago formatted
+
 # Combine PDF files
 * Drag from the thumbnail view and drop to the thumbnail view of the Preview app.
 
