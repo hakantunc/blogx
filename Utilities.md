@@ -1,8 +1,10 @@
 # Get a specified past date
 * `date -v-23d`
-  - 23 days ago
+  - 23 days ago, on macOS
 * `date -v-23d "+%A - %B %-d, %Y"`
-  - 23 days ago formatted
+  - 23 days ago formatted, on macOS
+* `date -d "23 days ago"
+  - on gnu/linux
 
 # Combine PDF files
 * Drag from the thumbnail view and drop to the thumbnail view of the Preview app.
