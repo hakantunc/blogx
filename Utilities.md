@@ -1,3 +1,6 @@
+# Remove a symlink
+* unlink <symlink>
+
 # Get a specified past date
 * `date -v-23d`
   - 23 days ago, on macOS
