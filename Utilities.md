@@ -1,3 +1,6 @@
+# Get diff of two files and output the first file
+* diff --changed-group-format='%<' --unchanged-group-format='' <first-file> <second-file>
+
 # Remove a symlink
 * unlink <symlink>
 
