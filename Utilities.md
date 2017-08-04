@@ -1,3 +1,7 @@
+# Securely erase a disk
+* Two passes:
+  - `sudo shred -v -n1 -z /dev/sd?`
+
 # Get diff of two files and output the first file
 * diff --changed-group-format='%<' --unchanged-group-format='' <first-file> <second-file>
 
