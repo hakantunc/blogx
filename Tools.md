@@ -8,7 +8,7 @@
   - `spin -p -t *.pml`
 
 # Emacs
-
+* [use-package](https://www.masteringemacs.org/article/spotlight-use-package-a-declarative-configuration-tool)
 * Reload configurations
   - `M-x eval-buffer`
 
