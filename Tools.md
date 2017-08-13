@@ -4,6 +4,8 @@
 
 # [SPIN](http://spinroot.com/)
 
+* Run a simulation
+  - `spin *.pml`
 * Generate a verifier
   - `spin -a *.pml`
 * Compile and run the verifier
