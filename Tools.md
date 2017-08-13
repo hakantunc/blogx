@@ -1,3 +1,7 @@
+# Haskell
+* ghci multiple lines edit
+  - `:set +m`
+
 # [SPIN](http://spinroot.com/)
 
 * Generate a verifier
