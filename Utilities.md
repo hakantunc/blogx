@@ -1,3 +1,9 @@
+# Delete specific backups
+* `tmutil delete <backupdir>`
+
+# Compact sparsbundle
+* `hdiutil compact *.sparsbundle`
+
 # Securely erase a disk
 * Two passes:
   - `sudo shred -v -n1 -z /dev/sd?`
