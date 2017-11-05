@@ -1,3 +1,9 @@
+# Control macOS with Playstation controller
+* Connect the controller with bluetooth
+  - Press down on PS and share buttons at the same time, the light flashes
+  - Pair the device with the Mac
+* Install [enjoyable](https://yukkurigames.com/enjoyable/) and set the keys
+
 # Delete specific backups
 * `tmutil delete <backupdir>`
 
