@@ -1,3 +1,7 @@
+# Move master to HEAD in git
+* `git branch -f master HEAD`
+* `git checkout master`
+
 # Control macOS with Playstation controller
 * Connect the controller with bluetooth
   - Press down on PS and share buttons at the same time, the light flashes
