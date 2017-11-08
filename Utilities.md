@@ -18,8 +18,11 @@
 * Two passes:
   - `sudo shred -v -n1 -z /dev/sd?`
 
-# Get diff of two files and output the first file
-* diff --changed-group-format='%<' --unchanged-group-format='' <first-file> <second-file>
+# Diff
+## Side by side without common lines
+* `diff -y --suppress-common-lines <file1> <file2>`
+## Get diff of two files and output the first file
+* `diff --changed-group-format='%<' --unchanged-group-format='' <file1> <file2>`
 
 # Remove a symlink
 * unlink <symlink>
