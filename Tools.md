@@ -1,10 +1,25 @@
 # Maven
+There are 3 lifecycles: default, clean, and site.
+
+## Default lifecycle
+* compile
+* test
+* package: Create a jar file
+* install: Add jar file into local maven repository
+
+When you run any of these phases, it runs from the beginning in order until the specified phase.
+
+## Clean lifecycle
+Cleans the project
+
+## Use cases
 * Create a jar file
   - `mvn clean package`
-* Add jar file into local maven repository
+* Add jar file into the local maven repository
   - `mvn clean install`
 * Run tests
   - `mvn clean test`
+
 ## Use case #1
 * Create a maven project
   - `mvn archetype:generate`
@@ -12,6 +27,7 @@
   - `mvn install`
 * Run the app
   - `java -cp ~/.m2/repository/<give-the-path> <entry-point-to-main (com.java...App)>`
+
 ## Use case #2: Run the application with `mvn`
 * Add following to pom.xml
 ```xml
