@@ -1,3 +1,33 @@
+# Maven
+* Create a jar file
+  - `mvn clean package`
+* Add jar file into local maven repository
+  - `mvn clean install`
+* Run tests
+  - `mvn clean test`
+## Use case #1
+* Create a maven project
+  - `mvn archetype:generate`
+* Install the jar into local repo
+  - `mvn install`
+* Run the app
+  - `java -cp ~/.m2/repository/<give-the-path> <entry-point-to-main (com.java...App)>`
+## Use case #2: Run the application with `mvn`
+* Add following to pom.xml
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>1.6.0</version>
+  <configuration>
+    <mainClass>{{com.java...path-to-main}}</mainClass>
+  </configuration>
+</plugin>
+```
+* Run the main
+  - `mvn -q compile exec:java`
+
+
 # Haskell
 * ghci multiple lines edit
   - `:set +m`
