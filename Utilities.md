@@ -1,3 +1,7 @@
+# Run a program until timeout
+* `gtimeout <time> <command with args>`
+* `brew install coreutils`
+
 # Move master to HEAD in git
 * `git branch -f master HEAD`
 * `git checkout master`
