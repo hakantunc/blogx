@@ -1,3 +1,10 @@
+# Queen
+
+| Year | Name               | Notes                                | Video                                       |
+| ---- | ----               | -----                                | -----                                       |
+| 1986 | Hungarian Rhapsody |  Live In Budapest                    | https://www.youtube.com/watch?v=EGj3cIWYL4k |
+
+
 # Bob Dylan
 
 | Year | Name              | Notes                                | Video                                       |
