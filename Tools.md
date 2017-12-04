@@ -1,10 +1,11 @@
 # Maven
 There are 3 lifecycles: default, clean, and site.
 
-## Default lifecycle
+## Default lifecycle [src](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Build_Lifecycle_Basics)
 * compile
 * test
 * package: Create a jar file
+* verify: Verify integration tests
 * install: Add jar file into local maven repository
 
 When you run any of these phases, it runs from the beginning in order until the specified phase.
