@@ -101,6 +101,10 @@ Cleans the project
 * http://nusmv.fbk.eu/NuSMV/tutorial/index.html
 * http://disi.unitn.it/~trentin/teaching/fm2016/fm2016.html
 
+# Terminal
+
+* `tldr`     -- Simplified and community-driven man pages
+  - `brew install tldr`
 
 # Commands
 
