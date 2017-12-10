@@ -21,6 +21,8 @@
 # Securely erase a disk
 * Two passes:
   - `sudo shred -v -n1 -z /dev/sd?`
+  - Locate the disk location
+    + `fdisk -l`
 
 # Diff
 ## Side by side without common lines
