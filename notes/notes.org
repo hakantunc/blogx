@@ -1,0 +1,370 @@
+* Languages - Frameworks - Tools - OSes
+** OpenSSL
+#+BEGIN_SRC sh
+openssl help # print commands
+#+END_SRC
+*** RSA
+#+BEGIN_SRC sh
+openssl genrsa help # print help
+openssl genrsa -out pri.key # generate an rsa key to a file
+openssl rsa -in pri.key -pubout -out pub.key # output the public key from a private key
+#+END_SRC
+** VHDL
+*** Introduction
+#+BEGIN_SRC vhdl
+  -- VHDL is not case sensitive.
+  -- Every statement terminates with a semicolon.
+  signal_name <= expression [after delay];
+  E <= C or D;
+  '0' and '1'; -- bit values
+  B: in bit_vector(3 downto 0);
+  B <= "1100" -- B(3)='1', B(2)='1', B(1)='0', B(0)='0'
+  -- C, A and B are 4-bit bit-vectors
+  C <= A and B -- C(3) <= A(3) and B(3); etc.
+
+  -- VHDL Modules
+  -- The entity description declares the input and output signals
+  -- and the architecture description specifies the internal operation of the module
+  entity two_gates is
+    port(A, B, D: in bit; E: out bit);
+  end two_gates;
+
+  architecture gates of two_gates is
+  signal C: bit;
+  begin
+    C <= A and B;
+    E <= C or D;
+  end gates;
+
+  -- Initial values are significant only for simulation and not for synthesis.
+  port(A, B: in integer := 2; C, D: out bit);
+
+  -- Modes
+  -- in, out, inout, buffer and linkage
+  -- buffer: similar to inout, mainly out
+  -- linkage: useful for connecting non-VHDL entities
+
+  -- The mode buffer indicates a signal that is an output to the
+  -- external world; however, its value can also be read inside the
+  -- entity's architecture.
+
+  entity FullAdder is
+    port(X, Y, Cin: in bit;
+         Cout, Sum: out bit;
+  end FullAdder;
+
+  architecture adder of FullAdder is
+  begin
+    Sum <= X xor Y xor Cin after 10ns;
+    Cout <= (X and Y) or (X and Cin) or (Y and Cin) after 10ns;
+  end adder;
+
+  entity Adder4 is
+    port(A, B in bit_vector(3 downto 0); Ci: in bit;
+         S, out bit_vector(3 downto 0); Co: out bit;
+  end Adder4;
+  architecture Structure of Adder4 is
+  component FullAdder
+    port(X, Y, Cin: in bit;
+         Cout, Sum: out bit);
+  end component;
+  signal C: bit_vector(3 downto 1); -- C is an internal signal
+  begin --instantiate four copies of the FullAdder
+    FA0: FullAdder port map (A(0), B(0), Ci, C(1), S(0));
+    FA1: FullAdder port map (A(1), B(1), C(1), C(2), S(1));
+    FA2: FullAdder port map (A(2), B(2), C(2), C(3), S(2));
+    FA3: FullAdder port map (A(3), B(3), C(3), Co, S(3));
+  end Structure;
+#+END_SRC
+*** Sequantial Statements and VHDL Processes
+#+BEGIN_SRC vhdl
+  -- When a process is used, the statements between the begin and the
+  -- end are executed sequentially.
+  process(sensitivity-list) -- process runs when any signal changes within the sensitivity list
+  begin
+    sequential-statements
+  end process;
+#+END_SRC
+*** std_logic
+#+BEGIN_SRC vhdl
+-- How would you declare two signals s1 and s2 as std_logic types?
+signal s1, s2 : std_logic;
+#+END_SRC
+*** Full Adder in class
+#+BEGIN_SRC vhdl
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity mux4to1 is
+port(I: in std_logic_vector(3 downto 0);
+     S: in std_logic_vector(1 downto 0);
+     f: out std_logic);
+end mux4to1;
+architecture example1 of mux4to1 is
+begin f <= (I(0) and not S(0) and not S(1))
+        or (I(1) and not S(0) and S(1))
+        or (I(2) and S(0) and not S(1))
+        or (I(3) and S(0) and S(1));
+end architecture example1;
+architecture example2 of mux4to1 is
+begin f <= I(0) when S = "00"
+      else I(1) when S = "01"
+      else I(2) when S = "10"
+      else I(3);
+end architecture example2;
+architecture example3 of mux4to1 is
+begin
+with S select
+f <= I(0) when "00",
+     I(1) when "01",
+     I(2) when "10",
+     I(3) when others;
+end architecture example3;
+architecture example4 of mux4to1 is
+begin
+  process(S, I) begin
+    case(S) is
+      when "00" => f <= I(0);
+      when "01" => f <= I(1);
+      when "10" => f <= I(2);
+      when others => f <= I(3);
+    end case;
+  end process;
+end architecture example4;
+#+END_SRC
+*** DFF in class
+#+BEGIN_SRC vhdl
+entity dff is
+  port(D, CLK: in std_logic;
+       Q, QN: out std_logic);
+end dff;
+architecture dff_imp of dff is
+begin
+process(CLK)
+begin
+  if CLK = '1' then
+    Q <= D;
+    QN <= not D;
+  end if;
+end process;
+end architecture dff_imp;
+#+END_SRC
+*** Quartus
+**** New Project
+**** New File > VHDL
+**** Compile
+**** Tools > Run Simulation Tool > RTL Simulation
+**** Expand the item on the left
+**** Add Wave form the Objects window
+**** Force values from the Wave window
+**** Type `run` at the transcript window
+** Phoenix
+| N        | D                       |
+|----------+-------------------------|
+| mix help | List available commands |
+|          |                         |
+*** Elm
+https://github.com/billperegoy/phoenix_elm_quickstart
+https://medium.com/@diamondgfx/writing-a-full-site-in-phoenix-and-elm-a100804c9499
+https://medium.com/@diamondgfx/setting-up-elm-with-phoenix-be3a9f55bac2
+http://codeloveandboards.com/blog/2017/02/02/phoenix-and-elm-a-real-use-case-pt-1/
+https://becoming-functional.com/bootstrapping-an-phoenix-elm-project-b6df18312904
+*** Authentication
+| Notes                              | Link                                                 |
+|------------------------------------+------------------------------------------------------|
+| many good features                 | https://github.com/smpallen99/coherence              |
+| many strategies including identity | https://github.com/ueberauth/ueberauth               |
+| basic                              | https://github.com/cultivatehq/basic_auth            |
+| from scratch -                     | http://nithinbekal.com/posts/phoenix-authentication/ |
+| Tutorial for guardian              | [[https://medium.freecodecamp.org/authentication-using-elixir-phoenix-f9c162b2c398][medium]]                                               |
+|                                    |                                                      |
+** Shell
+*** `` or $()
+substitute the output in command
+*** set -e
+exits if any command returns a non-zero exit code
+*** set -x
+outputs the commands as they run
+*** <()
+output is used as a filepath
+*** !$
+last argument
+*** !!
+last command w/ arguments
+*** !*
+all arguments
+** TCL
+*** Features: https://wiki.tcl.tk/299
+** Express
+*** Return JSON
+#+BEGIN_SRC js
+var express = require('express');
+var router = express.Router();
+router.get('/', function(req, res, next) {
+  res.json({});
+});
+#+END_SRC
+** iOS
+*** Dependencies
+#+BEGIN_SRC sh
+gem install cocoapods
+pod init
+#+END_SRC
+Add "pod 'Alamofire'" in Podfile
+#+BEGIN_SRC sh
+pod install
+#+END_SRC
+#+BEGIN_SRC swift
+import Alamofire
+#+END_SRC
+** Safari
+*** Injecting script to Safari
+https://developer.apple.com/library/content/documentation/Tools/Conceptual/SafariExtensionGuide/InjectingScripts/InjectingScripts.html
+** Coq
+*** Init: The core library (automatically loaded when starting Coq)
+Notations Datatypes Logic Logic_Type Nat Peano Specif Tactics Tauto Wf (Prelude)
+https://coq.inria.fr/distrib/current/stdlib/index.html
+*** Keyword Inductive?
+#+BEGIN_SRC coq
+  Inductive Empty_set : Set :=.
+  Inductive unit : Set :=
+    tt : unit.
+  Print unit.
+#+END_SRC
+#+BEGIN_SRC haskell
+print "i"
+
+#+END_SRC
+
+#+RESULTS:
+: i
+** Emacs
+*** Org mode
+| Desc               | Command or shortcut   |
+|--------------------+-----------------------|
+| Start a code block | <s TAB                |
+| Cut a subtree      | org-cut-special       |
+| Narrow to Subtree  | org-narrow-to-subtree |
+| Widen              | widen                 |
+*** Open a file from terminal in an existing Emacs
+**** add this to your init.el
+(server-start)
+**** set correct emacsclient in your shell configuration
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+**** open a file
+emacsclient -n <filename>
+*** Code folding
+**** https://www.emacswiki.org/emacs/FoldingMode
+**** enable hide-show mode
+hs-minor-mode
+**** show, hide commands are prefixed with hs
+hs-
+*** Multiple cursors
+**** https://github.com/magnars/multiple-cursors.el
+** Command Line
+*** Fork output for multiple commands
+date | tee >(pbcopy)
+You get date in to the clipboard plus to stdout.
+*** Edit command in your editor
+**** C-x C-e
+*** Tips
+https://mjtsai.com/blog/2016/09/26/mac-terminal-tips/
+** Package managers
+*** nix
+**** Tutorial
+- Search a package
+nix-env -qa <query>
+- Install a package
+nix-env -i <package>
+- Uninstall a package
+nix-env -e <package>
+- configuration.nix
+First of all, make sure that you run nixos-rebuild switch after each change to /etc/nixos/configuration.nix
+**** https://nixos.org/nix/manual/#chap-quick-start
+**** http://sandervanderburg.blogspot.com/2014/07/managing-private-nix-packages-outside.html
+**** nixos installation
+***** https://nixos.org/nixos/manual/index.html#sec-installation
+***** http://fluffynukeit.com/installing-nixos/
+***** allowUnfree
+in ~/.config/nixpkgs/config.nix
+{ allowUnfree = true; }
+https://nixos.wiki/wiki/FAQ/How_can_I_install_a_proprietary_or_unfree_package%3F
+# custom packages
+~/.config/nixpkgs/overlays/bjornforpkgs.nix
+self: super: { altera-quartus = super.callPackage ~/Developer/nixos-config/pkgs/altera-quartus {}; }
+*** MacPorts
+**** Install
+***** https://www.macports.org/install.php
+***** Add "/opt/local/bin" to /etc/paths
+**** Usage
+***** port installed -- list installed packages
+***** port search <portname>
+***** sudo port install <portname>
+***** Hide /usr/local (homebrew)
+****** sudo port -t install <portname>
+****** https://trac.macports.org/wiki/FAQ#usrlocal
+** NixOS
+*** on VirtualBox
+# install VirtualBox
+# add new machine and adjust settings
+# start the machine, select nixos iso
+fdisk /dev/sda
+n, primary, pick size, for last sector +40G
+n, primary, for swap, 
+w # to write
+generate-nixos configuration
+update configuration
+nixos-install
+** macOS
+*** free disk space
+tmutil listlocalsnapshotdates /
+tmutil deletelocalsnapshots <date>
+# sudo tmutil thinLocalSnapshots / 10000000000 4
+*** Backup
+**** exceptions
+cat /System/Library/CoreServices/backupd.bundle/Contents/Resources/StdExclusions.plist
+** System
+*** PATH
+**** System-wide PATH variable
+***** /etc/paths
+***** /etc/paths.d/
+***** man path_helper
+| Description                | Speaker       | Link |
+|----------------------------+---------------+------|
+| 'Propositions as Types' by | Philip Wadler |      |
+** Make
+*** Uninstall from make
+make -n uninstall
+make uninstall
+* Comparisons
+** Movie Review Sites
+| Name                         | Rec |
+|------------------------------+-----|
+| https://www.justwatch.com/us | No  |
+| http://www.imdb.com          | No  |
+|                              |     |
+** Todo: IMDB, Rotten Tomatoes, Fandango, or Metacritic?
+** IoT Protocols
+| Name  | Desc |
+|-------+------|
+| ZWave |      |
+* Tools
+** Content
+| Name  | Desc                                   | Link                      |
+|-------+----------------------------------------+---------------------------|
+| Clash | From Haskell to Hardware               | http://www.clash-lang.org |
+| [[Verdi]] | Formally Verifying Distributed Systems | http://verdi.uwplse.org   |
+** Verdi
+*** [[https://homes.cs.washington.edu/~jrw12/Counter.html][How to build a simple system in Verdi]]
+* Unorganized
+** fsync -- synchronize a file's in-core state with that on disk
+** date time specifiers
+*** https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html#date-invocation
+** Export PDF annotations as text
+Open with Skim.app
+Convert to notes
+Export as text
+** Compact a sparsebundle
+hdiutil compact -batteryallowed -verbose <file.sparsebundle>
+** Speed bench for disk
+sysbench fileio prepare
+sysbench fileio run --file-test-mode=rndrw
